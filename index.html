@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Planning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Meal planning for the week</h1>
+    <h2>You are what you eat</h2>
+
+    <p>Select the days you will be prepping your dinner</p>
+    <div class="day-selection">
+        <div class="day-box" data-day="Monday">Mon</div>
+        <div class="day-box" data-day="Tuesday">Tue</div>
+        <div class="day-box" data-day="Wednesday">Wed</div>
+        <div class="day-box" data-day="Thursday">Thu</div>
+        <div class="day-box" data-day="Friday">Fri</div>
+        <div class="day-box" data-day="Saturday">Sat</div>
+        <div class="day-box" data-day="Sunday">Sun</div>
+    </div>
+
+    <p id="selected-days">Days selected: 0</p>  <!-- Display the number of selected days -->
+
+    <p>Select the meal you would like to prep</p>
+    <label for="meal-select">Select a Meal:</label>
+    <select id="meal-select">
+        <option value="">--Please choose an option--</option>
+        <option value="chicken-yakiudon">Chicken Yakiudon</option>
+        <option value="miso-sliced-fish-soup">Miso Sliced Fish Soup</option>
+        <option value="pear-celery-salad">Pear, Celery and Dried Prune Salad</option>
+    </select>
+
+    <br><br><br><br>
+
+    <button id="generate-grocery-list" disabled>Generate Grocery List</button>
+
+    <div id="grocery-list"></div>  <!-- This will show the generated grocery list -->
+
+    <script src="script.js"></script>
+</body>
+</html>
