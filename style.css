@@ -140,7 +140,8 @@ select, button {
     border-radius: 5px;
     border: 1px solid #ccc;
     background-color: #fff;
-    width: 200px;
+    width: auto;  /* Allow the width to expand based on the content */
+    min-width: 200px;  /* Ensure a minimum width in case the content is too small */
     display: inline-block;
 }
 
@@ -153,6 +154,17 @@ button:hover:not(:disabled) {
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
+}
+
+#grocery-list ul {
+    list-style-type: none; /* Removes bullet points */
+    padding-left: 0; /* Removes left padding */
+    margin: 0; /* Optional: removes any default margin */
+}
+
+#grocery-list li {
+    text-align: middle; /* Align the text of each list item */
+    padding: 5px 0; /* Optional: adds spacing between items */
 }
 
 /* Footer */
