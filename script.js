@@ -40,6 +40,32 @@ const ingredients = {
         "Lemon juice": "1 tbsp",
         "Yoghurt": "60 g",
         "Mustard sauce": "1 tbsp"
+    },
+    "brown-rice-congee": {
+        "Brown Rice": "0.5 cup",
+        "Ginger": "1 slice",
+        "Chicken thigh": "1 whole",
+        "Carrots": "50 g",
+        "Mushrooms": "20 g",
+        "Sesame oil": "1 tsp",
+    },
+    "fried-olive-rice": {
+        "Garlic": "1 clove",
+        "Olives": "3 whole",
+        "Long beans": "50 g",
+        "Brown rice": "0.5 cup",
+        "Cashew nuts": "0.5 tbsp",
+        "Olive oil": "0.5 tbsp",
+        "Chili (optional)": "1 whole"
+    },
+    "prosperity-noodles": {
+        "Garlic": "1 clove",
+        "Yellow flat noodles": "100 g",
+        "Chinese cabbage": "20 g",
+        "Chye sim": "20 g",
+        "Abalone sauce": "0.5 tbsp",
+        "Rice bran oil": "0.5 tbsp",
+        "Sesame oil": "0.5 tbsp"
     }
 };
 
@@ -50,6 +76,37 @@ dayBoxes.forEach(box => {
         selectedDays = document.querySelectorAll('.day-box.selected').length;  // Count the selected days
         selectedDaysDiv.textContent = `Days selected: ${selectedDays}`;  // Update the number of selected days
         generateButton.disabled = selectedDays === 0 || !selectedMeal;  // Enable button if days and meal are selected
+    });
+});
+
+// Get references to the filter dropdown and recipe items
+const cuisineFilter = document.getElementById('cuisine-filter');
+const recipeItems = document.querySelectorAll('.recipe-item');
+
+// Event listener for the filter dropdown (Type of Cuisine)
+cuisineFilter.addEventListener('change', function() {
+    const selectedCuisine = cuisineFilter.value;
+
+    recipeItems.forEach(item => {
+        // Get the data-type attribute of the recipe
+        const recipeType = item.getAttribute('data-type');
+
+        if (selectedCuisine === 'all') {
+            // Show all recipes if 'All' is selected
+            item.classList.remove('hidden');
+        } else if (selectedCuisine === 'vegetarian' && recipeType === 'vegetarian') {
+            // Show only vegetarian recipes
+            item.classList.remove('hidden');
+        } else if (selectedCuisine === 'japanese' && recipeType === 'japanese') {
+            // Show only Japanese recipes
+            item.classList.remove('hidden');
+        } else if (selectedCuisine === 'chinese' && recipeType === 'chinese') {
+            // Show only Chinese recipes
+            item.classList.remove('hidden');
+        } else {
+            // Hide recipes that don't match the selected filter
+            item.classList.add('hidden');
+        }
     });
 });
 
